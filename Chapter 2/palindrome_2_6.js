@@ -57,6 +57,9 @@ return true;
 }
 
 
+//TO DO Recurse
+
+
 var a = new LinkedList('a');
 var b = new LinkedList('b');
 var c = new LinkedList('c');
