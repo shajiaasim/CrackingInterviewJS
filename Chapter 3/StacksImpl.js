@@ -22,8 +22,14 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.peek = function () {
-return this.storage[this._size];
+return this.storage[this._size-1];
 };
+
+Stack.prototype.isEmpty = function (){
+
+ return this._size===0;
+}
+
 
 function SetOfStacks(capacity){
 
