@@ -12,7 +12,7 @@ Queue.prototype.size = function() {
 
 
 Queue.prototype.enqueue = function(val) {
-  this._storage[this._newestIndex] = data;
+  this._storage[this._newestIndex] = val;
   this._newestIndex++;
 };
 
