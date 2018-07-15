@@ -21,7 +21,7 @@ BST.prototype.insert = function(val) {
   }
 }
 
-
+//BFS solution
 function checkBalanced(node) {
 
   if (node == null) return true;
@@ -40,6 +40,15 @@ if (node == null) return 0;
 return 1+ Math.max(node.left, node.right);
 
 }
+
+
+//DFS solution
+
+
+
+
+
+
 
 
 /* TEST */
