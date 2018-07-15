@@ -47,6 +47,8 @@ var findPeakElement = function(nums) {
 //Binary search
 //Split the work
 //recursion
+//not sure how it works
+
 
 function findPeakElement(nums) {
 
