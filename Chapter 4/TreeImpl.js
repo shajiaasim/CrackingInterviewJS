@@ -8,13 +8,13 @@ function BST(val) {
 BST.prototype.insert = function(val) {
 
   if (val < this._val) {
-    if (this._left == null) this._left = new Node(val);
+    if (this._left == null) this._left = new BST(val);
     else {
       this._left.insert(val);
     }
   } else {
 
-    if (this._right == null) this._right = new Node(val);
+    if (this._right == null) this._right = new BST(val);
     else {
       this._right.insert(val);
     }
@@ -35,16 +35,14 @@ BST.prototype.contains = function(val) {
 };
 
 
-BST.prototype.printInOrder = function() {
+BST.prototype.printLevelOrder = function() {
 
   if (this._left != null) {
-    this._left.printInOrder();
+    this._left.printLevelOrder();
   }
-  console.log(this.val);
+  console.log(this._val);
 
   if (this._right != null) {
-    this._right.printInOrder();
+    this._right.printLevelOrder();
   }
-
-
 }
