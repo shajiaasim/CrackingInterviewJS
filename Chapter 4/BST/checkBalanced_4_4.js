@@ -29,7 +29,7 @@ function checkBalanced(node) {
   var leftHeight = getHeight(node.left);
   var rightHeight = getHeight(node.right);
 
-  return (Math.abs(leftHeight-rightHeight) >1) && checkBalanced(node.left) && checkBalanced(node.right)
+  return (Math.abs(leftHeight-rightHeight) <=1) && checkBalanced(node.left) && checkBalanced(node.right)
 
 }
 
