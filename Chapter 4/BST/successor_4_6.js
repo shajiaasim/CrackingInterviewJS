@@ -19,3 +19,6 @@ function getSuccessor(rootNode, getSuccessorNode, rootNodeFound) {
   getSuccessor(rootNode._right, getSuccessorNode, rootNodeFound);
 
 }
+
+
+//TO DO REAL SOLUTION
