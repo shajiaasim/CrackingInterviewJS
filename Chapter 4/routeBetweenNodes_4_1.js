@@ -46,7 +46,6 @@ Graph.prototype.routeBetweenNodes2 = function(source, destination) {
   q.enqueue(source);
   var nodesVisited = {};
   nodesVisited[source] = true;
-
   var pointer = null
 
   while (q.size() > 0) {
