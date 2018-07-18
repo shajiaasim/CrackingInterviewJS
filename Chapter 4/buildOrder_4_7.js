@@ -56,5 +56,6 @@ function buildOrder(depList) {
             topSortUtil(adjList, edges[i], stack, nodesVisited);
          }
     }
+    //push when nowhere else to go  i.e no more dependencies i.e
     stack.push(currentVertex);
   }
