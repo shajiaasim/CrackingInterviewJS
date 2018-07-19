@@ -53,59 +53,61 @@ BST.prototype.printLevelOrder = function() {
 
 
 
-function LinkedList(){
-this.value = null;
-this.next=null;
-this.length=0
+function LinkedList() {
+  this.value = null;
+  this.next = null;
+  this.length = 0
 }
 
 
 LinkedList.prototype.add = function(val) {
 
-	if (this.value==null) {
-  this.value = val;
-  this.length++;
-  }
-  else{
-  var currentNode = this.value;
+  if (this.value == null) {
+    this.value = val;
+    this.length++;
+  } else {
+    var currentNode = this.value;
 
 
-  while (currentNode.next) {
+    while (currentNode.next) {
       currentNode = currentNode.next;
     }
-		var temp = new LinkedList ();
+    var temp = new LinkedList();
     temp.add(val);
     currentNode.next = temp;
     this.length++;
-	}
+  }
 
 }
 
 
-
+//Correct, TODO: try with linkedList though
 function listOfDepths(bst) {
 
-  var listsOfLists = [];
-  var current = new LinkedList();
-  current.add(bst);
-  var parents = null;
+  var hashMap = [];
 
-
-
-  while (current!=null) {
-    listsOfLists.push(current);
-    var parents = current;
-    current = new LinkedList();
-
-    while (parents!=null){
-      current.add(parents.value._left);
-      current.add(parents.value._right);
-      parents = parents.value.next;
-    }
-
-  }
-  return listsOfLists;
+  return bfsUtil(bst, listOfLists, 1);
 }
+
+
+function bfsUtil(node, hashMap, level) {
+
+  if (node == null) return;
+  hashMap[level].add(node.left);
+  hashMap[level].add(node.right);
+  bfsUtil(node._left, hashMap, level + 1);
+  bfsUtil(node._right, hashMap, level + 1);
+  return hashmap;
+}
+
+
+
+
+
+//TODO:try while loop solution
+
+
+
 
 
 // function ListOfDepths(bst) {

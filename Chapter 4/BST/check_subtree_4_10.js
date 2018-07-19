@@ -8,11 +8,12 @@ function checkSubtree(T1, T2) {
   }
 }
 
+
 dfsCheck(T1, T2) {
 
   if (T1 == null && T2 == null) return true;
   if (T1 != T2) return false;
 
   return dfsCheck(T1.left, T2.left) &&
-    dfsCheck(T.right, T2.right);
+    dfsCheck(T1.right, T2.right);
 }
