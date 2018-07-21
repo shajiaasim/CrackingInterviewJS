@@ -41,7 +41,6 @@ function buildOrder(depList) {
         topSortUtil(graph.adjList, currentVertex, stack, nodesVisited);
       }
     }
-
     while (stack._size>0){
       console.log(stack.pop());
     }
