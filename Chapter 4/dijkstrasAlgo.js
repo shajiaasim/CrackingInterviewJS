@@ -30,7 +30,8 @@ dikstraUtil(node, edgeList, minHeap, path, nodesVisited) {
         updatePath();
       }
     }
-
   }
+
+  if (minHeap!=null) dikstraUtil(minHeap.getMin(), edgeList, path, nodesVisited);
 
 }
