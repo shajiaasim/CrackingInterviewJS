@@ -49,4 +49,4 @@ var maxSubArray = function(nums) {
 };
 
 console.log('h');
-console.log(maxSubArray([3,-2,5,-1,2]));
+console.log(maxSubArray([3,-2,1,-1,2]));
