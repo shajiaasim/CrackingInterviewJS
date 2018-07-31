@@ -2,6 +2,7 @@ function mergeSort(arr) {
 
   if (arr.length == 1) return arr;
   var mid = Math.floor(arr.length / 2);
+  //slice doesnt alter original array, splice does (Destructive)
   var leftArr = arr1.slice(0, mid);
   var rightArr = arr2.slice(mid, arrlength);
   return mergeSortUtil(mergeSort(leftArr), mergeSort(rightArr));
@@ -14,10 +15,10 @@ merge(left, right) {
   while (left.length && right.length) {
     if (left[0] < right[0]) {
       A.push(left[0]);
-      left = left.slice(1);
+      left = left.shift();
     } else {
       A.push(right[0]);
-      right = right.slice(1);
+      right = right.shift();
     }
   }
 
