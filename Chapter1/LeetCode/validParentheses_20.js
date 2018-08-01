@@ -36,13 +36,11 @@ var isValid = function(s) {
     if (charArray.length == 0) return true;
 
     for (var i=0; i<charArray.length;i++){
-
-
-        if (charArray[i] == ')' || charArray[i] == '}' || charArray[i] == ']' )
+    if (charArray[i] == ')' || charArray[i] == '}' || charArray[i] == ']' )
           {
             if (stack.pop() == getOpposite(charArray[i])) isClosed = true;
               else{
-                  return false;
+                  return false; 
               }
         } else{
           stack.push(charArray[i]);

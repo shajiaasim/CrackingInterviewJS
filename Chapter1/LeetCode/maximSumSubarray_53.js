@@ -1,5 +1,36 @@
 //https://www.youtube.com/watch?v=ohHWQf1HDfU&index=16&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A&t=12s
 
+
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+//
+// Example:
+//
+// Input: [-2,1,-3,4,-1,2,1,-5,4],
+// Output: 6
+// Explanation: [4,-1,2,1] has the largest sum = 6.
+// Follow up:
+//
+// If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+
+
+//working: Kadane's algorithm
+var maxSubArray = function(nums) {
+  let cur = nums[0];
+  let res = nums[0];
+  for(let i = 1; i < nums.length; i ++){
+    if(cur < 0){
+      cur = nums[i];
+    }
+    else {
+      cur = cur + nums[i];
+    }
+    res = Math.max(res, cur);
+  }
+  return res;
+};
+
+
 // D n Q
 //Not working
 function maximunSumSubarray(arr, start, end) {
@@ -32,21 +63,6 @@ function maximunSumSubarray(arr, start, end) {
 
 console.log(maximunSumSubarray([3,-2,5,-1], 0, 4))
 
-//working
-var maxSubArray = function(nums) {
-  let cur = nums[0];
-  let res = nums[0];
-  for(let i = 1; i < nums.length; i ++){
-    if(cur < 0){
-      cur = nums[i];
-    }
-    else {
-      cur = cur + nums[i];
-    }
-    res = Math.max(res, cur);
-  }
-  return res;
-};
 
 console.log('h');
 console.log(maxSubArray([3,-2,1,-1,2]));

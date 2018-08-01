@@ -12,8 +12,9 @@ function firstOccurence(arr, k) {
     var mid = Math.round((high - low) / 2);
 
     if (arr[mid] == k) {
-        //store result instead of returning it
+      //store result instead of returning it
       result = mid;
+      //move left if you found it
       high = mid - 1;
     } else if (arr[mid] < k) {
       low = mid - 1;
@@ -22,6 +23,8 @@ function firstOccurence(arr, k) {
     }
 
   }
+
+  return result;
 
 }
 
@@ -41,6 +44,7 @@ function lastOccurence(arr, k) {
     if (arr[mid] == k) {
       //store result instead of returning it
       result = mid;
+      //move right if you found it
       low = mid + 1;
     } else if (arr[mid] < k) {
       low = mid - 1;
@@ -49,5 +53,7 @@ function lastOccurence(arr, k) {
     }
 
   }
+
+  return result;
 
 }

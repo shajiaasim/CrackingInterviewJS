@@ -7,7 +7,7 @@ function countRotations(arr) {
   while (low <= high) {
 
     var mid = Math.round((high + low) / 2);
-    if (arr[low]<arr[high]) return low; //already sorted
+    if (arr[low]<arr[high]) return low; //already sorted, return 0
     if (arr[mid] <= arr[mid + 1] && arr[mid] < arr[mid - 1]) {
       return mid;// found pivot
     } else if (arr[mid] <= arr[high]) { //right part already sorted, check pivot left side

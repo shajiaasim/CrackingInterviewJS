@@ -15,14 +15,13 @@ function find(arr, k) {
         high = mid- 1;
       }
     } else { //left half is sorted
-      if (arr[low]<=k && k < arr[mid] ) {
+      if (arr[low]<=k && k < arr[mid] ) { //k is between low and mid
         high = mid - 1;
       } else {
         low = mid + 1;
       }
     }
   }
-
   return -1;
 }
 

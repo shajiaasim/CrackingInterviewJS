@@ -27,6 +27,13 @@ function isPalinPerm(word) {
       else obj[currChar]++;
     }
   })
+//  for (let num of arr) {
+//      map[num] = ~~map[num] + 1;
+//  }
+
+
+//looping ooer objects keys
+ //for (var key in obj)
 
   Object.keys(obj).forEach(function(key) {
     if (obj[key] % 2 == 1) {
