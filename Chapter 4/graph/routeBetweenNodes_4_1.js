@@ -1,16 +1,7 @@
 //https://www.youtube.com/watch?v=zaBhtODEL0w&t=588s
+// 4.1 Route Between Nodes: Given a directed graph, design an algorithm to find out whether there is a
+// route between two nodes.
 
-function Graph() {
-  this.adjList = {};
-}
-
-Graph.prototype.addVertex = function(vertex) {
-  this.adjList[vertex] = [];
-};
-
-Graph.prototype.addEdge = function(vertex1, vertex2) {
-  this.adjList[vertex1].push(vertex2);
-}
 
 
 //dfs (recursion)
@@ -25,7 +16,6 @@ Graph.prototype.dfsSearch = function(source, destination, nodesVisited) {
   if (source == destination) return true;
 
   nodesVisited[source] = true;
-
   var children = this.adjList[source];
 
   for (var i = 0; i < children.length; i++) {
@@ -66,6 +56,20 @@ Graph.prototype.routeBetweenNodes2 = function(source, destination) {
   return false;
 
 };
+
+
+// 
+// function Graph() {
+//   this.adjList = {};
+// }
+//
+// Graph.prototype.addVertex = function(vertex) {
+//   this.adjList[vertex] = [];
+// };
+//
+// Graph.prototype.addEdge = function(vertex1, vertex2) {
+//   this.adjList[vertex1].push(vertex2);
+// }
 
 
 //Test

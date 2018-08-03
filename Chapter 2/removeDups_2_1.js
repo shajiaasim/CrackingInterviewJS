@@ -21,12 +21,8 @@ SinglyList.prototype.removeDups = function() {
     }
     previousNode = currentNode;
     currentNode = currentNode.next;
-
   }
-
 }
-
-
 
 //no buffer
 
@@ -35,29 +31,17 @@ SinglyList.prototype.removeDupsNoBuffer = function() {
 
   var currentNode = this.head,
     otherNode;
-
-
   while (!currentNode) {
-
     otherNode = currentNode.next;
-
     while (!otherNode) {
-
       if (currentNode.val == otherNode.val) {
         previousNode.next = otherNode.next.next;
-
       } else {
-
         previousNode = otherNode;
         otherNode = otherNode.next;
-
       }
-
     }
     currentNode = currentNode.nextl
-
-
-
   }
 
 }

@@ -26,14 +26,9 @@ function validateBST(node) {
 }
 
   function validateBSTUtil(node, min, max) {
-
   if (node == null) return true;
-
-
-
     if (node._val > max) return false;
     if (node._val < min ) return false;
-
   return validateBSTUtil(node._left, min, node._val) && validateBSTUtil(node._right, node._val, max)
 }
 

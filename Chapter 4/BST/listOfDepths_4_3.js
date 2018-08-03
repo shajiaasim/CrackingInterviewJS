@@ -1,4 +1,41 @@
-//NEEDS FIXING
+//DFS recursive:
+function listOfDepths(bst) {
+
+  var hashMap = [];
+  hashmap[0].push([bst.val]);
+  return bfsUtil(bst, listOfLists, 1);
+}
+
+
+function bfsUtil(node, hashMap, level, temp) {
+
+  if (node == null) return;
+  hashMap[level].add(node.left);
+  hashMap[level].add(node.right);
+  bfsUtil(node._left, hashMap, level + 1);
+  bfsUtil(node._right, hashMap, level + 1);
+  return hashmap;
+}
+
+//BFS iterative:
+function levelOrderTraversal(root) {
+ var temp = [];
+ var res=[];
+ var q = new Queue();
+ q.enqueue(root);
+ while (!q.isEmpty()){
+   var maxLoopCount = q.size();
+   for (var i=0;i<maxLoopCount;i++){
+     var node=q.dequeue();
+     temp.push(node.value);
+     q.enqueue(node.left);
+     q.enqueue(node.right);
+   }
+   res.push(temp);
+   temp.clear();
+ }
+ return res;
+}
 
 
 function BST(val) {
@@ -80,70 +117,6 @@ LinkedList.prototype.add = function(val) {
 
 }
 
-
-//Correct, TODO: try with linkedList though
-function listOfDepths(bst) {
-
-  var hashMap = [];
-
-  return bfsUtil(bst, listOfLists, 1);
-}
-
-
-function bfsUtil(node, hashMap, level) {
-
-  if (node == null) return;
-  hashMap[level].add(node.left);
-  hashMap[level].add(node.right);
-  bfsUtil(node._left, hashMap, level + 1);
-  bfsUtil(node._right, hashMap, level + 1);
-  return hashmap;
-}
-
-
-
-
-
-//TODO:try while loop solution
-
-
-
-
-
-// function ListOfDepths(bst) {
-//
-//
-//   var list = new LinkedList(bst.val);
-//
-//   var q = new Queue();
-//
-//   var level = 1
-//   q.enqueue(bst.val)
-//
-//   while (q.size() > 0) {
-//
-//     var pointer = q.dequeue();
-//     var newLevel = true;
-//     while (bst.level = level) {
-//
-//       if (newLevel) {
-//         var list2 = new LinkedList(bst.left);
-//         q.enqueue(bst.left);
-//         list2.next(bst.right);
-//         q.enqueue(bst.right);
-//
-//       } else {
-//         newLevel = false;
-//         list2.next(bst.left);
-//         q.enqueue(bst.left);
-//         list2.next(bst.right);
-//         q.enqueue(bst.right);
-//       }
-//     }
-//
-//   }
-//
-// }
 
 
 var tree = new BST(4);

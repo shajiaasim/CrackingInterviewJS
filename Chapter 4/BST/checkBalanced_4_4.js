@@ -1,3 +1,31 @@
+
+
+//BFS solution
+function checkBalanced(node) {
+
+  if (node == null) return true;
+
+  var leftHeight = getHeight(node.left);
+  var rightHeight = getHeight(node.right);
+
+  return (Math.abs(leftHeight-rightHeight) <=1) && checkBalanced(node.left) && checkBalanced(node.right)
+
+}
+
+function getHeight(node) {
+
+if (node == null) return 0;
+
+return 1+ Math.max(getHeight(node.left), getHeight(node.right));
+
+}
+
+
+//DFS solution
+
+
+
+// BST class
 function BST(val) {
   this._val = val;
   this._left = null;
@@ -20,34 +48,6 @@ BST.prototype.insert = function(val) {
     }
   }
 }
-
-//BFS solution
-function checkBalanced(node) {
-
-  if (node == null) return true;
-
-  var leftHeight = getHeight(node.left);
-  var rightHeight = getHeight(node.right);
-
-  return (Math.abs(leftHeight-rightHeight) <=1) && checkBalanced(node.left) && checkBalanced(node.right)
-
-}
-
-function getHeight(node) {
-
-if (node == null) return 0;
-
-return 1+ Math.max(node.left, node.right);
-
-}
-
-
-//DFS solution
-
-
-
-
-
 
 
 
