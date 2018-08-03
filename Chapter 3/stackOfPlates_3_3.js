@@ -1,35 +1,46 @@
+// Stack of Plates: Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
+// Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
+// threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be
+// composed of several stacks and should create a new stack once the previous one exceeds capacity.
+// SetOfStacks. push () and SetOfStacks. pop() should behave identically to a single stack
+// (that is, pop ( ) should return the same values as it would if there were just a single stack).
+
 function SetOfStacks(capacity){
 
-this._setOfStacks = [];
-this._capacity = capacity;
+this.stackSet = new Stack();
+this.capacity = capacity;
 }
 
-SetOfStacks.prototype.push = function (val) {
-
-var set = this._setOfStacks;
-var valuePushed = false;
-if (!this._setOfStacks) {
-  this._setOfStacks.push(new Stack());
-
-}
-else{
-  for (var i =0; i< set.length; i++ ){
-    if (set[i]._size<capacity) this._setOfStacks[i].push(val);
+SetOfStacks.prototype.push = function(value) {
+  if (this.stackSet.length === 0  || this.stackSet[this.stackSet.length - 1].length === this.capacity) {
+    var newStack = new Stack();
+    newStack.push(value);
+    this.stackSet.push(newStack);
+  } else {
+    this.stackSet[this.stackSet.length - 1].push(value);
   }
-  if (!valuePushed){
-    this._setOfStacks.push(new Stack());
-    this._setOfStacks[set.length-1].push(val);
-  }
-}
-
 };
 
+SetOfStacks.prototype.pop = function() {
+  if (this.numStack === 0) {
+    return undefined;
+  } else if (this.stackSet[this.stackSet.length - 1].length === 0) {
+    this.stackSet.pop();
+  }
+  return this.stackSet[this.stackSet.length - 1].pop();
+};
 
+SetOfStacks.prototype.peek = function() {
+  var currStack = this.stackSet[this.stackSet.length - 1];
+  return currStack[currStack.length - 1];
+};
 
-SetOfStacks.prototype.pop = function (val) {
+SetOfStacks.prototype.isEmpty = function() {
+  return this.stackSet.length === 0;
+};
 
-this._setOfStacks[this._size].pop();
-
+SetOfStacks.prototype.popAt = function(index) {
+  return this.stackSet[index].pop();
 };
 
 

@@ -6,10 +6,9 @@ function reverse(node) {
   while (current) {
     next = current.next;
     current.next = prev;
-    current = next;
     prev = current;
+    current = next;
   }
-
   return prev;
 }
 

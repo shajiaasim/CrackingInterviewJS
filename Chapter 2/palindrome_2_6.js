@@ -28,8 +28,6 @@ function isPalindrome(head) {
 
   var obj = [];
   var originalList = head;
-
-
   var reversedList = new LinkedList(null);
 
   while (originalList != null) {

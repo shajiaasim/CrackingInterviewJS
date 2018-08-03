@@ -1,33 +1,36 @@
-function Stack() {
-  this._size = 0;
-  this.storage = {};
-  this._min = new Stack();
-}
+// Approach, keep an additional stack that keeps the mins
+var stackMin = function() {
+  this.stack = new Stack();
+  this.minStack = new Stack();
+  this.currMin = undefined;
+};
 
-
-Stack.prototype.push = function(val) {
-
-  var size = this.size++;
-  if (!this._min || val < this._min) this._min.push(val);
-
-  this.storage[size] = val;
-}
-
-
-Stack.prototype.pop = function() {
-  var size = this.size;
-  if (size) {
-    var pop = this.storage[size];
-    delete this.storage[size];
-    this.size--;
-    if (pop == this._min.peek()) this._min.pop();
-    return pop;
+stackMin.prototype.push = function(value) {
+  if (this.currMin === undefined || value <= this.currMin) {
+    this.minStack.push(this.currMin);
+    this.currMin = value;
   }
-}
+  this.stack.push(value);
+};
 
+stackMin.prototype.pop = function() {
+  var answer = this.stack.pop();
+  if (answer === this.currMin) {
+    this.currMin = this.minStack.pop();
+  }
+  return answer;
+};
 
-Stack.prototype.min = function() {
-  this._min.peek();
+stackMin.prototype.peek = function() {
+  return this.stack.peek();
+};
+
+stackMin.prototype.isEmpty = function() {
+  return this.stack.isEmpty();
+};
+
+stackMin.prototype.min = function() {
+  return this.currMin;
 };
 
 

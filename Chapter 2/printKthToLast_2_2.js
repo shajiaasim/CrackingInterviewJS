@@ -29,16 +29,16 @@ SinglyList.prototype.printKthToLast = function(k) {
 }
 
 //recurse
-SinglyList.prototype.printKthToLast2 = function(head,k) {
+SinglyList.prototype.printKthToLast2 = function(head, k) {
 
-var currentNode= head;
+  var currentNode = head;
 
-if (k==1){
-console.log(currentNode.val);
-this.printKthTolast2(currentNode.next,k);
-} else{
-this.printKthTolast2(currentNode.next,k-1);
-}
+  if (k == 1) {
+    console.log(currentNode.val);
+    this.printKthTolast2(currentNode.next, k);
+  } else {
+    this.printKthTolast2(currentNode.next, k - 1);
+  }
 
 
 

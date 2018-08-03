@@ -1,35 +1,14 @@
-function LinkedList(value) {
-  this.value = value;
-  this.next = null;
-}
+// Intersection: Given two (singly) linked lists, determine if the two lists intersect. Return the
+// intersecting node. Note that the intersection is defined based on reference, not value. That is, if the
+// kth node of the first linked list is the exact same node (by reference) as the jth node of the second
+// linked list, then they are intersecting.
 
-LinkedList.prototype.size = function() {
-  var i = 0;
-  var head = this;
-  if (head == null) return 0;
-  else {
-
-    while (head.value != null) {
-      i++;
-      head = head.next;
-    }
-  }
-
-  return i;
-
-}
-
-LinkedList.prototype.getKthNode = function(k) {
-
-  var head = this;
-  var i = 1;
-  while (i < k) {
-    head = head.next;
-    i++
-  }
-  return head;
-}
-
+// We now have a multistep process.
+// 1. Run through each linked list to get the lengths and the tails.
+// 2. Compare the tails. If they are different (by reference, not by value), return immediately. There is no intersection.
+// 3. Set two pointers to the start of each linked list.
+// 4. On the longer linked list, advance its pointer by the difference in lengths.
+// 5. Now, traverse on each linked list until the pointers are the same.
 
 
 
@@ -62,6 +41,37 @@ function intersectionDiffLength(head1, head2) {
 
 }
 
+function LinkedList(value) {
+  this.value = value;
+  this.next = null;
+}
+
+LinkedList.prototype.size = function() {
+  var i = 0;
+  var head = this;
+  if (head == null) return 0;
+  else {
+
+    while (head.value != null) {
+      i++;
+      head = head.next;
+    }
+  }
+
+  return i;
+
+}
+
+LinkedList.prototype.getKthNode = function(k) {
+
+  var head = this;
+  var i = 1;
+  while (i < k) {
+    head = head.next;
+    i++
+  }
+  return head;
+}
 
 /* TEST */
 

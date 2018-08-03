@@ -52,13 +52,12 @@ Graph.prototype.routeBetweenNodes2 = function(source, destination) {
     }
     }
   }
-
   return false;
 
 };
 
 
-// 
+//
 // function Graph() {
 //   this.adjList = {};
 // }
